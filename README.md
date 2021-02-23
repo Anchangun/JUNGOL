@@ -1,9 +1,11 @@
 # JUNGOL
 
 [Basic Launguage]
+
 ![issue badge](https://img.shields.io/badge/Language-C%2B%2B-red?style=flat&logo=cplusplus)
 
 [Title]
+
 ![issue badge](https://img.shields.io/badge/LeetCode-algorithm-critical?style=flat&logo=LeetCode&logoColor=FFFFFF)
 
 [Why]
