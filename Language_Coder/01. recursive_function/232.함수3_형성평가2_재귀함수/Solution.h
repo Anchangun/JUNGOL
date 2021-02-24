@@ -4,14 +4,12 @@ class Solution
 {
 private:
 	int user_data;
+	int check_data;
 	void input_data();
-	void recursion(int data);
+	void recursion(int lp_data,int max_data);
 public :
 	Solution();
-	void run() {
-		input_data();
-		recursion(user_data);
-	}
+	void run();
 
 };
 
