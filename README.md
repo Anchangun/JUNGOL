@@ -13,4 +13,5 @@ Daily practice for brain rotation before starting work.
 
 Step 1. Language_Coder - In progress
 
-Step 2. Beginner_Coder
+Step 2. Beginner_Coder - In progress
+
