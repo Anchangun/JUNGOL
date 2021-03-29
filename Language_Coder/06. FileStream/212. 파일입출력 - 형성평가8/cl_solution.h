@@ -1,8 +1,10 @@
 #pragma once
 #include"share.h"
+#include <math.h>
 #include <vector>
+#define MAX 3
 typedef struct UserData {
-	int num[3];
+	int num[MAX];
 }UserData;
 
 class cl_solution
@@ -11,7 +13,7 @@ private :
 
 	std::vector<UserData> vt_user_data;
 	void fn_input_data();
-	void fn_result_data();
+	std::string fn_result_data();
 	bool fn_data_check(int data);
 
 public :
