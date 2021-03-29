@@ -27,7 +27,19 @@ void cl_solution::fn_input_data()
 	}
 }
 
-void cl_solution::fn_result_data(){
+std::string cl_solution::fn_result_data(){
+	int lp_w = 0;
+	int lp_num_w = 0;
+	float temp_sum=0;
+	std::string result_msg = NULL;
+	while (lp_w < vt_user_data.size()) {
+		while (lp_num_w < MAX) {
+			temp_sum= temp_sum+vt_user_data[lp_w].num[lp_num_w];
+			lp_num_w++;
+		}
+		result_msg = result_msg + std::to_string(temp_sum);
+		lp_w++;
+	}
 
 }
 
