@@ -21,8 +21,10 @@ void cl_solution::fn_input_data()
 				std::cout << std::endl;
 				loop_insert++;
 			}
+			
 			vt_user_data.push_back(st_user_data);
 			loop_user++;
+			loop_insert = 0;
 		}
 	}
 }
@@ -30,25 +32,46 @@ void cl_solution::fn_input_data()
 std::string cl_solution::fn_result_data(){
 	int lp_w = 0;
 	int lp_num_w = 0;
+	int lp_string_w = 0;
 	float temp_sum=0;
-	std::string result_msg = NULL;
+	std::vector<float> vt_temp_sum;
+	std::string result_msg;
 	while (lp_w < vt_user_data.size()) {
 		while (lp_num_w < MAX) {
 			temp_sum= temp_sum+vt_user_data[lp_w].num[lp_num_w];
 			lp_num_w++;
 		}
-		result_msg = result_msg + std::to_string(temp_sum);
+		temp_sum = std::ceil((temp_sum/ MAX) * 10) / 10;
+		vt_temp_sum.push_back(temp_sum);
 		lp_w++;
+		lp_num_w = 0;
+		temp_sum = 0;
 	}
-
+	std::sort(vt_temp_sum.rbegin(), vt_temp_sum.rend());
+	for (int lp_f = 0; lp_f < vt_temp_sum.size(); lp_f++) {
+		result_msg = result_msg + std::to_string(vt_temp_sum[lp_f]) + "\n";
+	}
+	
+	return result_msg;
 }
 
 bool cl_solution::fn_data_check(int data){
 	return (data < 2 || data>100) ? false :  true;
 }
 
+cl_solution::cl_solution(){
+	m_file_write = new cl_file_write("Result.txt");
+}
+
+cl_solution::~cl_solution()
+{
+	delete(m_file_write);
+}
+
 void cl_solution::fn_run(){
 	fn_input_data();
+
+	m_file_write->setterWriteFile(fn_result_data());
 }
 
 
